@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bdqywi7lxw8gn"]
+
+[ext_resource type="PackedScene" uid="uid://vqm0uwodyih5" path="res://logo.tscn" id="1_aedp5"]
+[ext_resource type="Script" uid="uid://cttj8hlxgbymc" path="res://boundary.gd" id="1_os8pt"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cgbmm"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gyk3h"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_os8pt"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_aedp5"]
+normal = Vector2(-1, 0)
+
+[node name="Node2D" type="Node2D" unique_id=1273535549]
+
+[node name="Boundary" type="StaticBody2D" parent="." unique_id=1810651007]
+script = ExtResource("1_os8pt")
+
+[node name="Top" type="CollisionShape2D" parent="Boundary" unique_id=1749415728]
+shape = SubResource("WorldBoundaryShape2D_cgbmm")
+
+[node name="Left" type="CollisionShape2D" parent="Boundary" unique_id=481638089]
+shape = SubResource("WorldBoundaryShape2D_gyk3h")
+
+[node name="Bottom" type="CollisionShape2D" parent="Boundary" unique_id=265303182]
+position = Vector2(1920, 1080)
+shape = SubResource("WorldBoundaryShape2D_os8pt")
+
+[node name="Right" type="CollisionShape2D" parent="Boundary" unique_id=1762735491]
+position = Vector2(1920, 1080)
+shape = SubResource("WorldBoundaryShape2D_aedp5")
+
+[node name="Logo" parent="." unique_id=1676751227 instance=ExtResource("1_aedp5")]
