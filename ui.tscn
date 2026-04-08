@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://buy4rqboyq5i7"]
+
+[ext_resource type="Script" uid="uid://boxw85eqsffcl" path="res://ui.gd" id="1_fyqef"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fyqef"]
+bg_color = Color(0, 0, 0, 0.7058824)
+border_width_left = 1
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0.26666668, 0.26666668, 0.26666668, 1)
+corner_radius_top_left = 8
+corner_radius_bottom_left = 8
+
+[node name="Control" type="Control" unique_id=1321754578]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fyqef")
+
+[node name="Label" type="Label" parent="." unique_id=1947646629]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="." unique_id=1913972133]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 200.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="Control" unique_id=136198369]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="items" type="Label" parent="Control/TabContainer" unique_id=1722460114]
+layout_mode = 2
+text = "SHOP"
+metadata/_tab_index = 0
+
+[node name="Button" type="Button" parent="Control" unique_id=1508230905]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_fyqef")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fyqef")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fyqef")
+theme_override_styles/focus = SubResource("StyleBoxFlat_fyqef")
+toggle_mode = true
+text = "<"
+
+[connection signal="toggled" from="Control/Button" to="." method="_on_shop_toggled"]

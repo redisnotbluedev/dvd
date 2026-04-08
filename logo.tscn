@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://1s2c4itj3ic7" path="res://dvd.svg" id="1_iyh20"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iyh20"]
-size = Vector2(318.5, 140)
+size = Vector2(114, 50)
 
 [node name="Logo" type="CharacterBody2D" unique_id=1676751227]
 script = ExtResource("1_hgdat")
@@ -14,5 +14,5 @@ texture = ExtResource("1_iyh20")
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2090381986]
-position = Vector2(159.25, 70)
+position = Vector2(57, 25)
 shape = SubResource("RectangleShape2D_iyh20")

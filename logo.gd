@@ -1,12 +1,23 @@
 extends CharacterBody2D
 
-@export var speed: float = 300.0
-var direction: Vector2 = Vector2(1, 1).normalized()
+@export var speed: float = 1000.0
+var direction: Vector2 = Vector2.from_angle(randf() * TAU)
+signal bounce
 
-func _physics_process(delta: float):
+func _ready() -> void:
+	modulate = get_color()
+
+func get_color() -> Color:
+	return Color.from_hsv(randf(), 0.8, 1)
+
+func _physics_process(delta: float) -> void:
 	var velocity = direction * speed * delta
 	var collision = move_and_collide(velocity)
 	
 	if collision:
-		direction = direction.bounce(collision.get_normal())
-		modulate = Color(randf(), randf(), randf())
+		var normal = collision.get_normal()
+		
+		if velocity.dot(normal) < 0:
+			direction = direction.bounce(collision.get_normal())
+			modulate = get_color()
+			bounce.emit()

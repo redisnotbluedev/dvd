@@ -5,4 +5,6 @@ func _ready() -> void:
 	_on_viewport_size_changed()
 
 func _on_viewport_size_changed():
-	pass
+	var screen_size: Vector2 = get_viewport().get_visible_rect().size
+	$Bottom.position = screen_size
+	$Right.position = screen_size
